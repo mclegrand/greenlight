@@ -25,6 +25,14 @@ OmniAuth.config.logger = Rails.logger
 
 # Setup the Omniauth middleware.
 Rails.application.config.middleware.use OmniAuth::Builder do
+
+  provider :shibboleth, {
+    :shib_session_id_field     => "Shib-Session-ID",
+    :shib_application_id_field => "Shib-Application-ID",
+    :debug                     => true,
+    ]
+  }
+
   if Rails.configuration.omniauth_bn_launcher
     provider :bn_launcher, client_id: ENV['CLIENT_ID'],
       client_secret: ENV['CLIENT_SECRET'],

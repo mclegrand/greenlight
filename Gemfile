@@ -46,6 +46,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Authentication.
 gem 'omniauth'
+gem 'omniauth-shibboleth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-bn-office365', git: 'https://github.com/blindsidenetworks/omniauth-bn-office365.git', tag: '0.1.0'

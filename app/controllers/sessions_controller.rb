@@ -39,6 +39,11 @@ class SessionsController < ApplicationController
         "#{Rails.configuration.relative_url_root}/auth/#{@providers.first}"
       end
 
+    #If SAML is enabled, just route to it instead.
+    if Rails.application.config.omniauth_shibboleth
+      redirect_to "#{relative_root}/auth/shibboleth"
+    end
+
       return redirect_to provider_path
     end
   end

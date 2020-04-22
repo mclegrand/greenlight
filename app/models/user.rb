@@ -69,6 +69,14 @@ class User < ApplicationRecord
     end
   end
 
+  def self.saml_username(auth_hash)
+    auth_hash['info']['nickname']
+  end
+  def self.saml_email(auth_hash)
+    auth_hash['info']['email']
+  end
+
+
   def self.admins_search(string, role)
     active_database = Rails.configuration.database_configuration[Rails.env]["adapter"]
     # Postgres requires created_at to be cast to a string
